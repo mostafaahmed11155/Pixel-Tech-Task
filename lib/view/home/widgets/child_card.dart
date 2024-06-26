@@ -7,14 +7,15 @@ import '../../../utils/colors.dart';
 import '../../../utils/constants.dart';
 
 class ChildCard extends StatelessWidget {
-  const ChildCard({super.key});
+  final bool withBus;
+  const ChildCard({super.key, required this.withBus});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: getSize(context).width,
       padding: const EdgeInsets.all(20),
-      margin: const EdgeInsetsDirectional.only(end: 20,bottom: 20,start: 20),
+      margin: const EdgeInsetsDirectional.only(end: 20,bottom: 25,start: 20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: white,
@@ -59,16 +60,16 @@ class ChildCard extends StatelessWidget {
                       width: 10,
                       height: 10,
                       decoration: BoxDecoration(
-                          color: blueGrey,
+                          color: withBus? blueGrey : red,
                           borderRadius: BorderRadius.circular(100)
                       ),
                     ),
                     const SizedBox(width: 10,),
-                    const CustomTitle(
-                      text: "مع الحافله",
+                    CustomTitle(
+                      text: withBus? "مع الحافله" : "غائب",
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
-                      color: blueGrey,
+                      color: withBus? blueGrey : red,
                     ),
                     const SizedBox(width: 10,),
                     const Icon(Icons.blur_circular_rounded,color: blueGrey,)

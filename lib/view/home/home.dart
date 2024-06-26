@@ -22,6 +22,12 @@ class _HomeState extends State<Home> {
     const BusCard(),
   ];
 
+  List<Widget> childCards = [
+    const ChildCard(withBus: true,),
+    const ChildCard(withBus: true,),
+    const ChildCard(withBus: false,),
+  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +109,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             const SizedBox(height: 20,),
-            const ChildCard()
+            ...childCards.map((childCard) => childCard)
           ],
         ),
       ),

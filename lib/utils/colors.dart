@@ -9,3 +9,4 @@ const yellow = Colors.yellow;
 const blueGrey = Colors.blueGrey;
 const grey = Colors.grey;
 const purple = Colors.purple;
+const red = Colors.red;
