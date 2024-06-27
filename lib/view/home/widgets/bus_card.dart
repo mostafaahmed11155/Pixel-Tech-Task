@@ -10,7 +10,7 @@ class BusCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 100,
-      width: 400,
+      width: 380,
       padding: const EdgeInsets.all(20),
       margin: const EdgeInsetsDirectional.only(end: 20),
       decoration: BoxDecoration(
@@ -19,7 +19,7 @@ class BusCard extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             blurRadius: 5,
-            color: black.withOpacity(.1),
+            color: black.withOpacity(.2),
           )
         ],
       ),
@@ -30,15 +30,15 @@ class BusCard extends StatelessWidget {
           Row(
             children: [
               Image.asset(
-                "assets/images/freepik.webp",
+                "assets/images/school-bus.webp",
                 scale: 5.0,
               ),
               const SizedBox(width: 10,),
               const CustomTitle(
                 text: "Bus-547",
-                fontSize: 14,
+                fontSize: 15,
                 fontWeight: FontWeight.w500,
-                color: grey,
+                color: color775,
               ),
             ],
           ),
@@ -48,7 +48,7 @@ class BusCard extends StatelessWidget {
                 width: 13,
                 height: 13,
                 decoration: BoxDecoration(
-                    color: yellow,
+                    color: colorF42,
                     borderRadius: BorderRadius.circular(100)
                 ),
               ),
@@ -57,7 +57,7 @@ class BusCard extends StatelessWidget {
                 text: "شحنات قيد التوصيل",
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
-                color: yellow,
+                color: colorF42,
               ),
             ],
           ),

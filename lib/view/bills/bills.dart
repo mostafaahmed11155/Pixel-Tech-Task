@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pixel_tech_task/utils/size_utility.dart';
 
 import '../../components/custom_title.dart';
@@ -30,6 +31,11 @@ class _BillsState extends State<Bills> {
         toolbarHeight: 80,
         backgroundColor: Colors.transparent,
         leadingWidth: getSize(context).width,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: white, // Change the status bar color
+          statusBarIconBrightness: Brightness.dark, // For Android (change the status bar icon color)
+          statusBarBrightness: Brightness.dark, // For iOS (change the status bar icon color)
+        ),
         leading: Container(
           margin: const EdgeInsets.symmetric(horizontal: 35,vertical: 10),
           decoration: BoxDecoration(
@@ -52,7 +58,7 @@ class _BillsState extends State<Bills> {
                     width: 40,
                     margin: const EdgeInsetsDirectional.only(start: 10),
                     decoration: BoxDecoration(
-                      color: blueGrey,
+                      color: color775,
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: const Icon(Icons.arrow_back_rounded,color: white,size: 22,),
@@ -80,7 +86,7 @@ class _BillsState extends State<Bills> {
               width: getSize(context).width,
               margin: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
               decoration: BoxDecoration(
-                color: blueGrey,
+                color: color775,
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
@@ -100,7 +106,7 @@ class _BillsState extends State<Bills> {
                     text: "الرسوم الدراسية",
                     fontSize: 20,
                     fontWeight: FontWeight.w500,
-                    color: blueGrey,
+                    color: color775,
                   ),
                 ),
               ),
@@ -127,7 +133,7 @@ class _BillsState extends State<Bills> {
                       text: "المتبقي :    ",
                       style: TextStyle(
                         fontFamily: cairo,
-                          color: yellow,
+                          color: colorF42,
                           fontSize: 18,
                           fontWeight: FontWeight.w700),
                       children: <TextSpan>[
@@ -136,7 +142,7 @@ class _BillsState extends State<Bills> {
                           style: TextStyle(
                               fontFamily: cairo,
                               fontWeight: FontWeight.w700,
-                              color: blueGrey,
+                              color: color775,
                               fontSize: 18),
                         ),
                       ],
@@ -177,7 +183,7 @@ class _BillsState extends State<Bills> {
                           text: "المبلغ المطلوب ",
                           style: TextStyle(
                               fontFamily: cairo,
-                              color: grey,
+                              color: colorF50,
                               fontSize: 16,
                               fontWeight: FontWeight.w600),
                           children: <TextSpan>[
@@ -186,7 +192,7 @@ class _BillsState extends State<Bills> {
                               style: TextStyle(
                                   fontFamily: cairo,
                                   fontWeight: FontWeight.w600,
-                                  color: blueGrey,
+                                  color: color775,
                                   fontSize: 16),
                             ),
                           ],
@@ -203,7 +209,7 @@ class _BillsState extends State<Bills> {
                             width: 13,
                             height: 13,
                             decoration: BoxDecoration(
-                                color: yellow,
+                                color: colorF42,
                                 borderRadius: BorderRadius.circular(100)
                             ),
                           ),
@@ -212,7 +218,7 @@ class _BillsState extends State<Bills> {
                             text: "مدفوع",
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
-                            color: yellow,
+                            color: colorF42,
                           ),
                         ],
                       ),
@@ -223,7 +229,7 @@ class _BillsState extends State<Bills> {
                         fontWeight: FontWeight.w600,
                         color: black,
                         decoration: TextDecoration.underline,
-                       decorationColor: blueGrey,
+                       decorationColor: color775,
                       ),
                     ],
                   ),
@@ -236,7 +242,7 @@ class _BillsState extends State<Bills> {
               margin: const EdgeInsets.only(left: 20,right: 20,bottom: 25,top: 100),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(13),
-                color: blueGrey,
+                color: color775,
                 boxShadow: [
                   BoxShadow(
                     blurRadius: 5,

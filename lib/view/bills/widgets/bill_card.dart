@@ -64,7 +64,7 @@ class _BillCardState extends State<BillCard> {
                   text: "المبلغ المطلوب ",
                   style: TextStyle(
                       fontFamily: cairo,
-                      color: grey,
+                      color: colorF50,
                       fontSize: 16,
                       fontWeight: FontWeight.w600),
                   children: <TextSpan>[
@@ -90,7 +90,7 @@ class _BillCardState extends State<BillCard> {
                   value = val!;
                 });
               },
-              activeColor: widget.paid? deepPurple.withOpacity(0.3) : deepPurple,
+              activeColor: widget.paid? color775.withOpacity(0.3) : color775,
               checkColor: white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(2.0),

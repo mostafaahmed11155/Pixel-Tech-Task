@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter/services.dart';
+import 'package:pixel_tech_task/model/student.dart';
 import 'package:pixel_tech_task/utils/size_utility.dart';
 import 'package:pixel_tech_task/view/home/widgets/bus_card.dart';
 import 'package:pixel_tech_task/view/home/widgets/child_card.dart';
+import 'package:pixel_tech_task/view_model/home_view_model.dart';
+import 'package:provider/provider.dart';
 
 import '../../components/custom_title.dart';
 import '../../utils/colors.dart';
@@ -15,6 +18,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  bool _isLoading = true;
   List<Widget> busCards = [
     const BusCard(),
     const BusCard(),
@@ -22,11 +26,17 @@ class _HomeState extends State<Home> {
     const BusCard(),
   ];
 
-  List<Widget> childCards = [
-    const ChildCard(withBus: true,),
-    const ChildCard(withBus: true,),
-    const ChildCard(withBus: false,),
-  ];
+
+
+  @override
+  void initState() {
+    Provider.of<HomeViewModel>(context,listen: false).getStudentsData().then((_){
+      setState(() {
+        _isLoading = false;
+      });
+    });
+    super.initState();
+  }
 
 
   @override
@@ -34,12 +44,20 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 155,
-        backgroundColor: blueGrey,
+        backgroundColor: Colors.transparent,
         leadingWidth: 500,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: color775, // Change the status bar color
+          statusBarIconBrightness: Brightness.light, // For Android (change the status bar icon color)
+          statusBarBrightness: Brightness.dark, // For iOS (change the status bar icon color)
+        ),
         leading: Container(
-          height: 80,
+          height: 155,
           width: getSize(context).width,
           padding: const EdgeInsets.symmetric(horizontal: 20),
+          decoration: const BoxDecoration(
+            image: DecorationImage(image: AssetImage("assets/images/Background.webp"),fit: BoxFit.cover)
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,8 +65,8 @@ class _HomeState extends State<Home> {
               const Row(
                 children: [
                   CircleAvatar(
-                    backgroundColor: grey,
-                    radius: 40,
+                    backgroundColor: colorF50,
+                    radius: 30,
                     backgroundImage: AssetImage("assets/dummy/person.webp",),
                   ),
                   SizedBox(width: 10,),
@@ -58,13 +76,13 @@ class _HomeState extends State<Home> {
                     children: [
                       CustomTitle(
                         text: "اهلا بك",
-                        fontSize: 18,
+                        fontSize: 14,
                         fontWeight: FontWeight.w500,
                         color: white,
                       ),
                       CustomTitle(
                         text: "محمد هاني محمد",
-                        fontSize: 18,
+                        fontSize: 14,
                         fontWeight: FontWeight.w500,
                         color: white,
                       ),
@@ -74,16 +92,23 @@ class _HomeState extends State<Home> {
               ),
               Stack(
                 children: [
-                  const Icon(FontAwesomeIcons.bell,color: white,size: 35,),
+                  Image.asset("assets/icons/bell.webp",scale: 3.0,),
                   Positioned(
                     top: 5,
                     right: 2,
                     child: Container(
-                      width: 13,
-                      height: 13,
+                      width: 14,
+                      height: 14,
                       decoration: BoxDecoration(
-                        color: yellow,
-                        borderRadius: BorderRadius.circular(100)
+                          color: white,
+                          borderRadius: BorderRadius.circular(100)
+                      ),
+                      child: Container(
+                        margin: const EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                          color: colorF42,
+                          borderRadius: BorderRadius.circular(100)
+                        ),
                       ),
                     ),
                   )
@@ -109,7 +134,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             const SizedBox(height: 20,),
-            ...childCards.map((childCard) => childCard)
+            ...Provider.of<HomeViewModel>(context).studentData.map<Widget>((StudentInfo studentInfo) => ChildCard(studentInfo: studentInfo))
           ],
         ),
       ),

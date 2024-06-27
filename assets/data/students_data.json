@@ -1,0 +1,28 @@
+[
+  {
+    "student_name": "نور هاني",
+    "activity": "مع الحافلة",
+    "grade": "9-5",
+    "bus_number": 123,
+    "bus_supervisor": "منى أحمد",
+    "studentAttendance": true
+  },
+  {
+    "student_name": "نور علي",
+    "activity": "مع الحافلة",
+    "grade": "10-3",
+    "bus_number": 456,
+    "bus_supervisor": "ليلى حسين",
+    "studentAttendance": true
+
+  },
+  {
+    "student_name": "ريم سامح",
+    "activity": "غائب",
+    "grade": "8-2",
+    "bus_number": 789,
+    "bus_supervisor": "أحمد صالح",
+    "studentAttendance": false
+
+  }
+]
