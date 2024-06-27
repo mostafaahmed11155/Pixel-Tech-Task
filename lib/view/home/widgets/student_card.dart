@@ -7,9 +7,9 @@ import '../../../components/custom_title.dart';
 import '../../../utils/colors.dart';
 import '../../../utils/constants.dart';
 
-class ChildCard extends StatelessWidget {
+class StudentCard extends StatelessWidget {
   final StudentInfo studentInfo;
-  const ChildCard({super.key, required this.studentInfo});
+  const StudentCard({super.key, required this.studentInfo});
 
   @override
   Widget build(BuildContext context) {

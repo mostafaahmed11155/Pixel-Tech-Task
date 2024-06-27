@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:pixel_tech_task/model/student.dart';
 import 'package:pixel_tech_task/utils/size_utility.dart';
 import 'package:pixel_tech_task/view/home/widgets/bus_card.dart';
-import 'package:pixel_tech_task/view/home/widgets/child_card.dart';
+import 'package:pixel_tech_task/view/home/widgets/student_card.dart';
 import 'package:pixel_tech_task/view_model/home_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -134,7 +134,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             const SizedBox(height: 20,),
-            ...Provider.of<HomeViewModel>(context).studentData.map<Widget>((StudentInfo studentInfo) => ChildCard(studentInfo: studentInfo))
+            ...Provider.of<HomeViewModel>(context).studentData.map<Widget>((StudentInfo studentInfo) => StudentCard(studentInfo: studentInfo))
           ],
         ),
       ),
